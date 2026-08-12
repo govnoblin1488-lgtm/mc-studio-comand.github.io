@@ -9,16 +9,15 @@
     
     <style>
         :root {
-            /* DARK THEME PALETTE */
-            --bg-app: #0f172a;       /* Очень темный синий/серый фон */
-            --bg-surface: #1e293b;   /* Цвет карточек */
-            --bg-hover: #334155;     /* Цвет при наведении */
-            --border: #334155;       /* Цвет рамок */
-            --primary: #3b82f6;      /* Акцентный синий */
-            --accent: #10b981;       /* Зеленый для успеха */
+            --bg-app: #0f172a;       
+            --bg-surface: #1e293b;   
+            --bg-hover: #334155;     
+            --border: #334155;       
+            --primary: #3b82f6;      
+            --accent: #10b981;       
             --danger: #ef4444;
-            --text-main: #f1f5f9;    /* Белый текст */
-            --text-muted: #94a3b8;   /* Серый текст */
+            --text-main: #f1f5f9;    
+            --text-muted: #94a3b8;   
             
             --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.3);
             --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.4);
@@ -37,13 +36,12 @@
             background: var(--bg-app); 
             color: var(--text-main); 
             font-family: var(--font-ui); 
-            font-weight: 300; /* ТОНКИЙ ШРИФТ */
+            font-weight: 300; 
             height: 100vh; width: 100vw; 
             overflow: hidden; display: flex; 
             -webkit-font-smoothing: antialiased; 
         }
 
-        /* SCROLLBAR */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-app); }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
@@ -51,7 +49,6 @@
 
         .app-layout { display: flex; width: 100%; height: 100%; }
         
-        /* SIDEBAR */
         .sidebar { 
             width: var(--sidebar-w); 
             background: var(--bg-surface); 
@@ -64,11 +61,13 @@
             height: var(--header-h); 
             display: flex; align-items: center; 
             padding: 0 24px; 
-            font-weight: 400; /* ТОНКИЙ ШРИФТ */
+            font-weight: 400; 
             font-size: 1.2rem; 
             border-bottom: 1px solid var(--border); 
             gap: 12px; 
             letter-spacing: 0.5px;
+            overflow: hidden;
+            white-space: nowrap;
         }
         
         .brand img {
@@ -76,6 +75,27 @@
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
+            display: block;
+        }
+
+        .brand-text-logo {
+            font-weight: 500;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .brand-text-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 3px;
+            box-shadow: 0 0 10px var(--primary);
         }
 
         .nav-list { padding: 16px 12px; flex: 1; overflow-y: auto; }
@@ -85,7 +105,7 @@
             padding: 12px 16px; margin-bottom: 4px; 
             border-radius: var(--radius); 
             color: var(--text-muted); 
-            font-weight: 400; /* ТОНКИЙ ШРИФТ */
+            font-weight: 400; 
             font-size: 0.95rem; 
             cursor: pointer; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -95,7 +115,7 @@
         .nav-item:hover { 
             background: var(--bg-hover); 
             color: var(--text-main); 
-            transform: translateX(5px); /* АНИМАЦИЯ СДВИГА */
+            transform: translateX(5px); 
         }
         
         .nav-item.active { 
@@ -105,7 +125,6 @@
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
         }
 
-        /* MAIN AREA */
         .main-area { flex: 1; display: flex; flex-direction: column; position: relative; min-width: 0; }
         
         .top-bar { 
@@ -119,7 +138,7 @@
         
         .page-title { 
             font-size: 1.1rem; 
-            font-weight: 400; /* ТОНКИЙ ШРИФТ */
+            font-weight: 400; 
             margin: 0; 
             opacity: 0;
             animation: fadeIn 0.5s forwards;
@@ -135,12 +154,10 @@
             border: 1px solid var(--border);
         }
 
-        /* WORKSPACE */
         .workspace { flex: 1; overflow-y: auto; padding: 32px; scroll-behavior: smooth; }
         
         .container { 
             max-width: 1000px; margin: 0 auto; 
-            /* АНИМАЦИЯ ПОЯВЛЕНИЯ КОНТЕЙНЕРА */
             animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
         }
 
@@ -154,7 +171,6 @@
             to { opacity: 1; }
         }
 
-        /* CARDS */
         .card { 
             background: var(--bg-surface); 
             border: 1px solid var(--border); 
@@ -168,7 +184,7 @@
         .card:hover { 
             box-shadow: var(--shadow-md); 
             border-color: rgba(255,255,255,0.1);
-            transform: translateY(-2px); /* АНИМАЦИЯ ПОДЪЕМА КАРТОЧКИ */
+            transform: translateY(-2px); 
         }
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -176,7 +192,7 @@
         label { 
             display: block; 
             font-size: 0.8rem; 
-            font-weight: 400; /* ТОНКИЙ ШРИФТ */
+            font-weight: 400; 
             color: var(--text-muted); 
             text-transform: uppercase; 
             letter-spacing: 0.05em; 
@@ -202,7 +218,6 @@
             background: #0f172a;
         }
 
-        /* RANGE SLIDER */
         .range-wrap { margin-top: 8px; }
         .range-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .range-badge { 
@@ -236,7 +251,6 @@
         
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 
-        /* ITEM LIST */
         .search-wrapper { position: relative; margin-bottom: 12px; }
         .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
         .search-input { padding-left: 42px !important; }
@@ -253,14 +267,21 @@
             padding: 10px 16px; 
             border-bottom: 1px solid var(--border); 
             cursor: pointer; 
-            font-family: var(--font-mono); 
-            font-size: 0.85rem; 
+            font-family: var(--font-ui); /* Используем обычный шрифт для русских названий */
+            font-size: 0.9rem; 
             display: flex; justify-content: space-between; align-items: center; 
             transition: all 0.2s; 
         }
         
+        .item-id-small {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
         .item-row:last-child { border-bottom: none; }
-        .item-row:hover { background: var(--bg-hover); padding-left: 20px; /* АНИМАЦИЯ СДВИГА */ }
+        .item-row:hover { background: var(--bg-hover); padding-left: 20px; }
         .item-row.selected { 
             background: rgba(59, 130, 246, 0.15); 
             color: var(--primary); 
@@ -268,7 +289,6 @@
             border-left: 3px solid var(--primary); 
         }
 
-        /* ENCHANT CARD */
         .enchant-card { 
             background: var(--bg-app); 
             border: 1px solid var(--border); 
@@ -311,7 +331,6 @@
         
         .btn-icon:hover { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
 
-        /* OUTPUT DOCK */
         .output-dock { 
             background: var(--bg-surface); 
             border-top: 1px solid var(--border); 
@@ -358,7 +377,6 @@
         .btn-copy:active { transform: translateY(0); }
         .btn-copy.success { background: var(--accent); }
 
-        /* COLOR PICKER */
         .color-picker { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
         .color-dot { 
             width: 24px; height: 24px; 
@@ -373,7 +391,6 @@
             box-shadow: 0 0 10px currentColor;
         }
 
-        /* SPECIAL CARDS (Potion/Arrow/Food) - Dark variants */
         .potion-card { border-color: rgba(167, 139, 250, 0.3); background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(167, 139, 250, 0.05) 100%); }
         .arrow-card { border-color: rgba(245, 158, 11, 0.3); background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(245, 158, 11, 0.05) 100%); }
         .food-card { border-color: rgba(16, 185, 129, 0.3); background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(16, 185, 129, 0.05) 100%); }
@@ -383,8 +400,6 @@
         @media (max-width: 900px) {
             .app-layout { flex-direction: column; }
             .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
-            .brand span { display: none; } /* Скрыть текст лого на мобилке, оставить картинку */
-            .brand { justify-content: center; }
             .nav-list { display: flex; overflow-x: auto; padding: 8px; gap: 4px; }
             .nav-item { margin: 0; white-space: nowrap; padding: 10px 16px; }
             .workspace { padding: 16px; }
@@ -398,13 +413,11 @@
 
 <div class="app-layout">
     <aside class="sidebar">
-        <div class="brand">
-            <!-- ЛОГОТИП ИЗ ПАПКИ IMG -->
-            <img src="img/logo.png" alt="Logo" onerror="this.style.display='none'">
-            <span>MC Studio</span>
+        <div class="brand" id="brandContainer">
+            <img src="img/logo.png" alt="Logo" id="siteLogo" onerror="handleLogoError()">
+            <div class="brand-text-logo" id="textLogo" style="display: none;">MC Studio</div>
         </div>
         <nav class="nav-list">
-            <!-- УБРАНЫ СМАЙЛИКИ -->
             <div class="nav-item active" data-tab="give">/give Предметы</div>
             <div class="nav-item" data-tab="gamemode">/gamemode</div>
             <div class="nav-item" data-tab="time">/time</div>
@@ -422,15 +435,13 @@
 
         <div class="workspace">
             
-            <!-- === GIVE PANEL === -->
             <section id="panel-give" class="container">
                 <div class="grid-2">
-                    <!-- Left: Item Selector -->
                     <div class="card">
                         <label>Выбор предмета</label>
                         <div class="search-wrapper">
                             <svg class="search-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                            <input type="text" class="search-input" id="itemSearch" placeholder="Поиск (зелье, стрела, sword)...">
+                            <input type="text" class="search-input" id="itemSearch" placeholder="Поиск (меч, зелье, apple)...">
                         </div>
                         <div class="item-list" id="itemList"><div style="padding:20px;text-align:center;color:var(--text-muted)">Загрузка...</div></div>
                         <div style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);display:flex;justify-content:space-between;">
@@ -439,7 +450,6 @@
                         </div>
                     </div>
 
-                    <!-- Right: Settings -->
                     <div>
                         <div class="card">
                             <label>Цель (Target)</label>
@@ -483,10 +493,8 @@
                             <input type="text" id="loreLine2" placeholder="Строка описания 2...">
                         </div>
 
-                        <!-- POTION SECTION -->
                         <div class="card potion-card" id="potionSection" style="display:none;">
                             <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-                                <!-- Убран смайлик -->
                                 <label style="margin:0;font-size:0.9rem;color:var(--text-main);">Настройки зелья</label>
                             </div>
                             <label>Формат зелья</label>
@@ -503,10 +511,8 @@
                             <p style="font-size:0.75rem;color:var(--text-muted);margin:8px 0 0;">Время в секундах (x20 тиков).</p>
                         </div>
 
-                        <!-- ARROW SECTION -->
                         <div class="card arrow-card" id="arrowSection" style="display:none;">
                             <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-                                <!-- Убран смайлик -->
                                 <label style="margin:0;font-size:0.9rem;color:var(--text-main);">Настройки стрелы (бафы/дебафы)</label>
                             </div>
                             <label>Формат стрелы</label>
@@ -525,10 +531,8 @@
                             </p>
                         </div>
 
-                        <!-- FOOD SECTION -->
                         <div class="card food-card" id="foodSection" style="display:none;">
                             <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-                                <!-- Убран смайлик -->
                                 <label style="margin:0;font-size:0.9rem;color:var(--text-main);">Настройки еды (эффекты при поедании)</label>
                             </div>
                             <div style="display:flex;justify-content:space-between;align-items:center;margin:0 0 12px;">
@@ -541,7 +545,6 @@
                             </p>
                         </div>
 
-                        <!-- ENCHANTS CARD -->
                         <div class="card" id="enchantsCard">
                             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                                 <label style="margin:0;font-size:0.9rem;color:var(--text-main)">Зачарования</label>
@@ -558,7 +561,6 @@
                 </div>
             </section>
 
-            <!-- === OTHER PANELS === -->
             <section id="panel-gamemode" class="container hidden">
                 <div class="card" style="max-width:600px;margin:0 auto;">
                     <div class="grid-2">
@@ -611,6 +613,20 @@
 </div>
 
 <script>
+    function handleLogoError() {
+        const img = document.getElementById('siteLogo');
+        const textLogo = document.getElementById('textLogo');
+        if (img) img.style.display = 'none';
+        if (textLogo) textLogo.style.display = 'flex';
+    }
+
+    window.addEventListener('load', () => {
+        const img = document.getElementById('siteLogo');
+        if (!img.complete || img.naturalHeight === 0) {
+            handleLogoError();
+        }
+    });
+
 const App = (() => {
     const POTION_IDS = ['minecraft:potion', 'minecraft:splash_potion', 'minecraft:lingering_potion'];
     const ARROW_IDS = ['minecraft:arrow', 'minecraft:spectral_arrow', 'minecraft:tipped_arrow'];
@@ -622,6 +638,341 @@ const App = (() => {
         'honey_bottle', 'mushroom_stew', 'beetroot_soup', 'rabbit_stew', 'suspicious_stew', 'chorus_fruit', 'rotten_flesh',
         'spider_eye', 'poisonous_potato'
     ];
+
+    // БАЗА ПЕРЕВОДОВ (можно расширять)
+    const TRANSLATIONS = {
+        "minecraft:stone": "Камень",
+        "minecraft:granite": "Гранит",
+        "minecraft:diorite": "Диорит",
+        "minecraft:andesite": "Андезит",
+        "minecraft:grass_block": "Блок травы",
+        "minecraft:dirt": "Земля",
+        "minecraft:cobblestone": "Булыжник",
+        "minecraft:oak_planks": "Дубовые доски",
+        "minecraft:spruce_planks": "Еловые доски",
+        "minecraft:birch_planks": "Берёзовые доски",
+        "minecraft:jungle_planks": "Доски тропического дерева",
+        "minecraft:acacia_planks": "Акациевые доски",
+        "minecraft:dark_oak_planks": "Доски тёмного дуба",
+        "minecraft:mangrove_planks": "Мангровые доски",
+        "minecraft:cherry_planks": "Вишнёвые доски",
+        "minecraft:bamboo_planks": "Бамбуковые доски",
+        "minecraft:crimson_planks": "Багровые доски",
+        "minecraft:warped_planks": "Искажённые доски",
+        "minecraft:oak_log": "Дубовое бревно",
+        "minecraft:spruce_log": "Еловое бревно",
+        "minecraft:birch_log": "Берёзовое бревно",
+        "minecraft:jungle_log": "Бревно тропического дерева",
+        "minecraft:acacia_log": "Акациевое бревно",
+        "minecraft:dark_oak_log": "Бревно тёмного дуба",
+        "minecraft:mangrove_log": "Мангровое бревно",
+        "minecraft:cherry_log": "Вишнёвое бревно",
+        "minecraft:crimson_stem": "Багровый стебель",
+        "minecraft:warped_stem": "Искажённый стебель",
+        "minecraft:diamond_ore": "Алмазная руда",
+        "minecraft:deepslate_diamond_ore": "Алмазоносный глубинный сланец",
+        "minecraft:iron_ore": "Железная руда",
+        "minecraft:gold_ore": "Золотая руда",
+        "minecraft:coal_ore": "Угольная руда",
+        "minecraft:emerald_ore": "Изумрудная руда",
+        "minecraft:nether_gold_ore": "Незеритовая золотая руда",
+        "minecraft:ancient_debris": "Древние обломки",
+        "minecraft:diamond_block": "Алмазный блок",
+        "minecraft:netherite_block": "Незеритовый блок",
+        "minecraft:gold_block": "Золотой блок",
+        "minecraft:iron_block": "Железный блок",
+        "minecraft:emerald_block": "Изумрудный блок",
+        "minecraft:obsidian": "Обсидиан",
+        "minecraft:crying_obsidian": "Плачущий обсидиан",
+        "minecraft:beacon": "Маяк",
+        "minecraft:spawner": "Рассадник",
+        "minecraft:chest": "Сундук",
+        "minecraft:ender_chest": "Эндер-сундук",
+        "minecraft:crafting_table": "Верстак",
+        "minecraft:furnace": "Печь",
+        "minecraft:blast_furnace": "Плавильная печь",
+        "minecraft:smoker": "Коптильня",
+        "minecraft:brewing_stand": "Зельеварка",
+        "minecraft:enchanting_table": "Чародейский стол",
+        "minecraft:anvil": "Наковальня",
+        "minecraft:grindstone": "Точило",
+        "minecraft:smithing_table": "Стол кузнеца",
+        "minecraft:lectern": "Кафедра",
+        "minecraft:loom": "Ткацкий станок",
+        "minecraft:cartography_table": "Картографический стол",
+        "minecraft:stonecutter": "Камнерез",
+        "minecraft:bell": "Колокол",
+        "minecraft:campfire": "Костёр",
+        "minecraft:soul_campfire": "Костёр душ",
+        "minecraft:lantern": "Фонарь",
+        "minecraft:soul_lantern": "Фонарь душ",
+        "minecraft:torch": "Факел",
+        "minecraft:soul_torch": "Факел душ",
+        "minecraft:tnt": "ТНТ",
+        "minecraft:barrel": "Бочка",
+        "minecraft:composter": "Компостница",
+        "minecraft:cauldron": "Котёл",
+        "minecraft:hopper": "Воронка",
+        "minecraft:dropper": "Выбрасыватель",
+        "minecraft:dispenser": "Раздатчик",
+        "minecraft:observer": "Наблюдатель",
+        "minecraft:piston": "Поршень",
+        "minecraft:sticky_piston": "Липкий поршень",
+        "minecraft:lever": "Рычаг",
+        "minecraft:button": "Кнопка",
+        "minecraft:pressure_plate": "Нажимная плита",
+        "minecraft:tripwire_hook": "Крюк",
+        "minecraft:repeater": "Повторитель",
+        "minecraft:comparator": "Компаратор",
+        "minecraft:redstone_torch": "Красный факел",
+        "minecraft:redstone_block": "Блок красного камня",
+        "minecraft:daylight_detector": "Датчик дневного света",
+        "minecraft:target": "Мишень",
+        "minecraft:sculk_sensor": "Скалк-сенсор",
+        "minecraft:calibrated_sculk_sensor": "Калиброванный скалк-сенсор",
+        "minecraft:sculk_shrieker": "Скалк-крикун",
+        "minecraft:note_block": "Нотный блок",
+        "minecraft:jukebox": "Проигрыватель",
+        "minecraft:bed": "Кровать",
+        "minecraft:banner": "Флаг",
+        "minecraft:shield": "Щит",
+        "minecraft:armor_stand": "Стойка для брони",
+        "minecraft:painting": "Картина",
+        "minecraft:item_frame": "Рамка",
+        "minecraft:glow_item_frame": "Светящаяся рамка",
+        "minecraft:flower_pot": "Цветочный горшок",
+        "minecraft:decorated_pot": "Декорированный горшок",
+        "minecraft:end_crystal": "Кристалл Энда",
+        "minecraft:conduit": "Кондуит",
+        "minecraft:lodestone": "Магнетит",
+        "minecraft:respawn_anchor": "Якорь возрождения",
+        "minecraft:crafter": "Создатель",
+        "minecraft:trial_spawner": "Пробный рассадник",
+        "minecraft:vault": "Хранилище",
+        "minecraft:ominous_trial_key": "Зловещий пробный ключ",
+        "minecraft:diamond_sword": "Алмазный меч",
+        "minecraft:netherite_sword": "Незеритовый меч",
+        "minecraft:iron_sword": "Железный меч",
+        "minecraft:golden_sword": "Золотой меч",
+        "minecraft:stone_sword": "Каменный меч",
+        "minecraft:wooden_sword": "Деревянный меч",
+        "minecraft:mace": "Булава",
+        "minecraft:diamond_pickaxe": "Алмазная кирка",
+        "minecraft:netherite_pickaxe": "Незеритовая кирка",
+        "minecraft:iron_pickaxe": "Железная кирка",
+        "minecraft:golden_pickaxe": "Золотая кирка",
+        "minecraft:stone_pickaxe": "Каменная кирка",
+        "minecraft:wooden_pickaxe": "Деревянная кирка",
+        "minecraft:diamond_axe": "Алмазный топор",
+        "minecraft:netherite_axe": "Незеритовый топор",
+        "minecraft:iron_axe": "Железный топор",
+        "minecraft:golden_axe": "Золотой топор",
+        "minecraft:stone_axe": "Каменный топор",
+        "minecraft:wooden_axe": "Деревянный топор",
+        "minecraft:diamond_shovel": "Алмазная лопата",
+        "minecraft:netherite_shovel": "Незеритовая лопата",
+        "minecraft:iron_shovel": "Железная лопата",
+        "minecraft:golden_shovel": "Золотая лопата",
+        "minecraft:stone_shovel": "Каменная лопата",
+        "minecraft:wooden_shovel": "Деревянная лопата",
+        "minecraft:diamond_hoe": "Алмазная мотыга",
+        "minecraft:netherite_hoe": "Незеритовая мотыга",
+        "minecraft:iron_hoe": "Железная мотыга",
+        "minecraft:golden_hoe": "Золотая мотыга",
+        "minecraft:stone_hoe": "Каменная мотыга",
+        "minecraft:wooden_hoe": "Деревянная мотыга",
+        "minecraft:bow": "Лук",
+        "minecraft:crossbow": "Арбалет",
+        "minecraft:trident": "Трезубец",
+        "minecraft:arrow": "Стрела",
+        "minecraft:spectral_arrow": "Спектральная стрела",
+        "minecraft:tipped_arrow": "Обработанная стрела",
+        "minecraft:potion": "Зелье",
+        "minecraft:splash_potion": "Взрывное зелье",
+        "minecraft:lingering_potion": "Туманное зелье",
+        "minecraft:glass_bottle": "Стеклянная бутылка",
+        "minecraft:diamond_helmet": "Алмазный шлем",
+        "minecraft:netherite_helmet": "Незеритовый шлем",
+        "minecraft:iron_helmet": "Железный шлем",
+        "minecraft:golden_helmet": "Золотой шлем",
+        "minecraft:chainmail_helmet": "Кольчужный шлем",
+        "minecraft:leather_helmet": "Кожаный шлем",
+        "minecraft:turtle_helmet": "Черепаший шлем",
+        "minecraft:diamond_chestplate": "Алмазный нагрудник",
+        "minecraft:netherite_chestplate": "Незеритовый нагрудник",
+        "minecraft:iron_chestplate": "Железный нагрудник",
+        "minecraft:golden_chestplate": "Золотой нагрудник",
+        "minecraft:chainmail_chestplate": "Кольчужный нагрудник",
+        "minecraft:leather_chestplate": "Кожаный нагрудник",
+        "minecraft:diamond_leggings": "Алмазные поножи",
+        "minecraft:netherite_leggings": "Незеритовые поножи",
+        "minecraft:iron_leggings": "Железные поножи",
+        "minecraft:golden_leggings": "Золотые поножи",
+        "minecraft:chainmail_leggings": "Кольчужные поножи",
+        "minecraft:leather_leggings": "Кожаные поножи",
+        "minecraft:diamond_boots": "Алмазные ботинки",
+        "minecraft:netherite_boots": "Незеритовые ботинки",
+        "minecraft:iron_boots": "Железные ботинки",
+        "minecraft:golden_boots": "Золотые ботинки",
+        "minecraft:chainmail_boots": "Кольчужные ботинки",
+        "minecraft:leather_boots": "Кожаные ботинки",
+        "minecraft:elytra": "Элитры",
+        "minecraft:totem_of_undying": "Тотем бессмертия",
+        "minecraft:wolf_armor": "Волчья броня",
+        "minecraft:apple": "Яблоко",
+        "minecraft:golden_apple": "Золотое яблоко",
+        "minecraft:enchanted_golden_apple": "Зачарованное золотое яблоко",
+        "minecraft:bread": "Хлеб",
+        "minecraft:cooked_beef": "Стейк",
+        "minecraft:cooked_porkchop": "Жареная свинина",
+        "minecraft:cooked_chicken": "Жареная курица",
+        "minecraft:cooked_mutton": "Жареная баранина",
+        "minecraft:cooked_cod": "Жареная треска",
+        "minecraft:cooked_salmon": "Жареный лосось",
+        "minecraft:pumpkin_pie": "Тыквенный пирог",
+        "minecraft:cake": "Торт",
+        "minecraft:cookie": "Печенье",
+        "minecraft:melon_slice": "Ломтик арбуза",
+        "minecraft:carrot": "Морковь",
+        "minecraft:golden_carrot": "Золотая морковь",
+        "minecraft:potato": "Картофель",
+        "minecraft:baked_potato": "Печёный картофель",
+        "minecraft:poisonous_potato": "Ядовитый картофель",
+        "minecraft:beetroot": "Свёкла",
+        "minecraft:beetroot_soup": "Свекольный суп",
+        "minecraft:dried_kelp": "Сушёная ламинария",
+        "minecraft:sweet_berries": "Сладкие ягоды",
+        "minecraft:glow_berries": "Светящиеся ягоды",
+        "minecraft:honey_bottle": "Бутылочка мёда",
+        "minecraft:suspicious_stew": "Подозрительное рагу",
+        "minecraft:milk_bucket": "Ведро молока",
+        "minecraft:water_bucket": "Ведро воды",
+        "minecraft:lava_bucket": "Ведро лавы",
+        "minecraft:powder_snow_bucket": "Ведро рыхлого снега",
+        "minecraft:axolotl_bucket": "Аксолотль в ведре",
+        "minecraft:cod_bucket": "Треска в ведре",
+        "minecraft:salmon_bucket": "Лосось в ведре",
+        "minecraft:tropical_fish_bucket": "Тропическая рыба в ведре",
+        "minecraft:pufferfish_bucket": "Иглобрюх в ведре",
+        "minecraft:tadpole_bucket": "Головастик в ведре",
+        "minecraft:command_block": "Командный блок",
+        "minecraft:repeating_command_block": "Повторяющий командный блок",
+        "minecraft:chain_command_block": "Цепной командный блок",
+        "minecraft:barrier": "Барьер",
+        "minecraft:structure_void": "Структурная пустота",
+        "minecraft:debug_stick": "Палочка отладки",
+        "minecraft:minecart": "Вагонетка",
+        "minecraft:chest_minecart": "Грузовая вагонетка",
+        "minecraft:furnace_minecart": "Самоходная вагонетка",
+        "minecraft:tnt_minecart": "Вагонетка с ТНТ",
+        "minecraft:hopper_minecart": "Загрузочная вагонетка",
+        "minecraft:oak_boat": "Дубовая лодка",
+        "minecraft:spruce_boat": "Еловая лодка",
+        "minecraft:birch_boat": "Берёзовая лодка",
+        "minecraft:jungle_boat": "Лодка из тропического дерева",
+        "minecraft:acacia_boat": "Акациевая лодка",
+        "minecraft:dark_oak_boat": "Лодка из тёмного дуба",
+        "minecraft:mangrove_boat": "Мангровая лодка",
+        "minecraft:cherry_boat": "Вишнёвая лодка",
+        "minecraft:bamboo_raft": "Бамбуковый плот",
+        "minecraft:lead": "Поводок",
+        "minecraft:name_tag": "Бирка",
+        "minecraft:saddle": "Седло",
+        "minecraft:spyglass": "Подзорная труба",
+        "minecraft:recovery_compass": "Компас возвращения",
+        "minecraft:compass": "Компас",
+        "minecraft:clock": "Часы",
+        "minecraft:map": "Карта",
+        "minecraft:goat_horn": "Козий рог",
+        "minecraft:music_disc_13": "Пластинка 13",
+        "minecraft:music_disc_cat": "Пластинка cat",
+        "minecraft:music_disc_blocks": "Пластинка blocks",
+        "minecraft:music_disc_chirp": "Пластинка chirp",
+        "minecraft:music_disc_far": "Пластинка far",
+        "minecraft:music_disc_mall": "Пластинка mall",
+        "minecraft:music_disc_mellohi": "Пластинка mellohi",
+        "minecraft:music_disc_stal": "Пластинка stal",
+        "minecraft:music_disc_strad": "Пластинка strad",
+        "minecraft:music_disc_ward": "Пластинка ward",
+        "minecraft:music_disc_11": "Пластинка 11",
+        "minecraft:music_disc_wait": "Пластинка wait",
+        "minecraft:music_disc_otherside": "Пластинка otherside",
+        "minecraft:music_disc_5": "Пластинка 5",
+        "minecraft:music_disc_pigstep": "Пластинка Pigstep",
+        "minecraft:music_disc_relic": "Пластинка Relic",
+        "minecraft:stick": "Палка",
+        "minecraft:blaze_rod": "Стержень ифрита",
+        "minecraft:ender_pearl": "Эндер-жемчуг",
+        "minecraft:eye_of_ender": "Око Эндера",
+        "minecraft:ghast_tear": "Слеза гаста",
+        "minecraft:nether_star": "Звезда Незера",
+        "minecraft:shulker_shell": "Панцирь шалкера",
+        "minecraft:prismarine_shard": "Призмариновый осколок",
+        "minecraft:prismarine_crystals": "Призмариновый кристалл",
+        "minecraft:rabbit_foot": "Кроличья лапка",
+        "minecraft:rabbit_hide": "Кроличья шкурка",
+        "minecraft:iron_ingot": "Железный слиток",
+        "minecraft:gold_ingot": "Золотой слиток",
+        "minecraft:netherite_ingot": "Незеритовый слиток",
+        "minecraft:diamond": "Алмаз",
+        "minecraft:emerald": "Изумруд",
+        "minecraft:coal": "Уголь",
+        "minecraft:charcoal": "Древесный уголь",
+        "minecraft:redstone": "Красная пыль",
+        "minecraft:lapis_lazuli": "Лазурит",
+        "minecraft:quartz": "Кварц",
+        "minecraft:amethyst_shard": "Аметистовый осколок",
+        "minecraft:raw_iron": "Рудное железо",
+        "minecraft:raw_gold": "Рудное золото",
+        "minecraft:raw_copper": "Рудная медь",
+        "minecraft:netherite_scrap": "Незеритовый лом",
+        "minecraft:flint": "Кремень",
+        "minecraft:leather": "Кожа",
+        "minecraft:string": "Нить",
+        "minecraft:feather": "Перо",
+        "minecraft:gunpowder": "Порох",
+        "minecraft:wheat": "Пшеница",
+        "minecraft:paper": "Бумага",
+        "minecraft:book": "Книга",
+        "minecraft:writable_book": "Книга и перо",
+        "minecraft:written_book": "Завершённая книга",
+        "minecraft:enchanted_book": "Зачарованная книга",
+        "minecraft:experience_bottle": "Пузырёк опыта",
+        "minecraft:firework_rocket": "Фейерверк",
+        "minecraft:firework_star": "Пиротехническая звезда",
+        "minecraft:ink_sac": "Чернильный мешок",
+        "minecraft:glow_ink_sac": "Светящийся чернильный мешок",
+        "minecraft:cocoa_beans": "Какао-бобы",
+        "minecraft:white_dye": "Белый краситель",
+        "minecraft:orange_dye": "Оранжевый краситель",
+        "minecraft:magenta_dye": "Пурпурный краситель",
+        "minecraft:light_blue_dye": "Голубой краситель",
+        "minecraft:yellow_dye": "Жёлтый краситель",
+        "minecraft:lime_dye": "Лаймовый краситель",
+        "minecraft:pink_dye": "Розовый краситель",
+        "minecraft:gray_dye": "Серый краситель",
+        "minecraft:light_gray_dye": "Светло-серый краситель",
+        "minecraft:cyan_dye": "Бирюзовый краситель",
+        "minecraft:purple_dye": "Фиолетовый краситель",
+        "minecraft:blue_dye": "Синий краситель",
+        "minecraft:brown_dye": "Коричневый краситель",
+        "minecraft:green_dye": "Зелёный краситель",
+        "minecraft:red_dye": "Красный краситель",
+        "minecraft:black_dye": "Чёрный краситель",
+        "minecraft:bone_meal": "Костная мука",
+        "minecraft:sugar": "Сахар",
+        "minecraft:egg": "Яйцо",
+        "minecraft:snowball": "Снежок",
+        "minecraft:clay_ball": "Глина",
+        "minecraft:brick": "Кирпич",
+        "minecraft:nether_brick": "Незерский кирпич",
+        "minecraft:popped_chorus_fruit": "Прожаренный плод хоруса",
+        "minecraft:echo_shard": "Осколок эха",
+        "minecraft:disc_fragment_5": "Фрагмент пластинки 5",
+        "minecraft:breeze_rod": "Стержень бриза",
+        "minecraft:wind_charge": "Заряд ветра",
+        "minecraft:armadillo_scute": "Щиток броненосца"
+    };
 
     const state = {
         tab: 'give',
@@ -668,66 +1019,7 @@ const App = (() => {
         "wind_charged":"Заряженный ветром","weaving":"Плетение","oozing":"Слизистость","infested":"Зараженность"
     };
 
-    const FALLBACK_ITEMS = [
-        "stone","granite","diorite","andesite","grass_block","dirt","cobblestone",
-        "oak_planks","spruce_planks","birch_planks","jungle_planks","acacia_planks",
-        "dark_oak_planks","mangrove_planks","cherry_planks","bamboo_planks",
-        "crimson_planks","warped_planks","oak_log","spruce_log","birch_log",
-        "jungle_log","acacia_log","dark_oak_log","mangrove_log","cherry_log",
-        "crimson_stem","warped_stem","diamond_ore","deepslate_diamond_ore",
-        "iron_ore","gold_ore","coal_ore","emerald_ore","nether_gold_ore",
-        "ancient_debris","diamond_block","netherite_block","gold_block",
-        "iron_block","emerald_block","obsidian","crying_obsidian","beacon",
-        "spawner","chest","ender_chest","crafting_table","furnace","blast_furnace",
-        "smoker","brewing_stand","enchanting_table","anvil","grindstone",
-        "smithing_table","lectern","loom","cartography_table","stonecutter",
-        "bell","campfire","soul_campfire","lantern","soul_lantern","torch",
-        "soul_torch","tnt","barrel","composter","cauldron","hopper","dropper",
-        "dispenser","observer","piston","sticky_piston","lever","button",
-        "pressure_plate","tripwire_hook","repeater","comparator","redstone_torch",
-        "redstone_block","daylight_detector","target","sculk_sensor","calibrated_sculk_sensor",
-        "sculk_shrieker","note_block","jukebox","bed","banner","shield",
-        "armor_stand","painting","item_frame","glow_item_frame","flower_pot",
-        "decorated_pot","end_crystal","conduit","lodestone","respawn_anchor",
-        "crafter","trial_spawner","vault","ominous_trial_key","diamond_sword",
-        "netherite_sword","iron_sword","golden_sword","stone_sword","wooden_sword",
-        "mace","diamond_pickaxe","netherite_pickaxe","iron_pickaxe","golden_pickaxe",
-        "stone_pickaxe","wooden_pickaxe","diamond_axe","netherite_axe","iron_axe",
-        "golden_axe","stone_axe","wooden_axe","diamond_shovel","netherite_shovel",
-        "iron_shovel","golden_shovel","stone_shovel","wooden_shovel","diamond_hoe",
-        "netherite_hoe","iron_hoe","golden_hoe","stone_hoe","wooden_hoe",
-        "bow","crossbow","trident","arrow","spectral_arrow","tipped_arrow",
-        "potion","splash_potion","lingering_potion","glass_bottle",
-        "apple","golden_apple","enchanted_golden_apple","bread","cooked_beef","cooked_porkchop","cooked_chicken",
-        "cooked_mutton","cooked_cod","cooked_salmon","pumpkin_pie","cake","cookie",
-        "melon_slice","carrot","golden_carrot","potato","baked_potato","poisonous_potato",
-        "beetroot","beetroot_soup","dried_kelp","sweet_berries","glow_berries",
-        "honey_bottle","suspicious_stew","milk_bucket","water_bucket","lava_bucket",
-        "powder_snow_bucket","axolotl_bucket","cod_bucket","salmon_bucket",
-        "tropical_fish_bucket","pufferfish_bucket","tadpole_bucket","command_block",
-        "repeating_command_block","chain_command_block","barrier","structure_void",
-        "debug_stick","minecart","chest_minecart","furnace_minecart","tnt_minecart",
-        "hopper_minecart","oak_boat","spruce_boat","birch_boat","jungle_boat",
-        "acacia_boat","dark_oak_boat","mangrove_boat","cherry_boat","bamboo_raft",
-        "lead","name_tag","saddle","spyglass","recovery_compass","compass",
-        "clock","map","goat_horn","music_disc_13","music_disc_cat","music_disc_blocks",
-        "music_disc_chirp","music_disc_far","music_disc_mall","music_disc_mellohi",
-        "music_disc_stal","music_disc_strad","music_disc_ward","music_disc_11",
-        "music_disc_wait","music_disc_otherside","music_disc_5","music_disc_pigstep",
-        "music_disc_relic","stick","blaze_rod","ender_pearl","eye_of_ender",
-        "ghast_tear","nether_star","shulker_shell","prismarine_shard","prismarine_crystals",
-        "rabbit_foot","rabbit_hide","iron_ingot","gold_ingot","netherite_ingot",
-        "diamond","emerald","coal","charcoal","redstone","lapis_lazuli","quartz",
-        "amethyst_shard","raw_iron","raw_gold","raw_copper","netherite_scrap",
-        "flint","leather","string","feather","gunpowder","wheat","paper",
-        "book","writable_book","written_book","enchanted_book","experience_bottle",
-        "firework_rocket","firework_star","ink_sac","glow_ink_sac","cocoa_beans",
-        "white_dye","orange_dye","magenta_dye","light_blue_dye","yellow_dye",
-        "lime_dye","pink_dye","gray_dye","light_gray_dye","cyan_dye","purple_dye",
-        "blue_dye","brown_dye","green_dye","red_dye","black_dye","bone_meal",
-        "sugar","egg","snowball","clay_ball","brick","nether_brick","popped_chorus_fruit",
-        "echo_shard","disc_fragment_5","breeze_rod","wind_charge","armadillo_scute"
-    ].sort().map(id => `minecraft:${id}`);
+    const FALLBACK_ITEMS = Object.keys(TRANSLATIONS).sort();
 
     function init() {
         setupNavigation();
@@ -791,22 +1083,43 @@ const App = (() => {
         return FOOD_KEYWORDS.some(keyword => id.includes(keyword));
     }
 
+    // Функция получения отображаемого имени
+    function getDisplayName(id) {
+        return TRANSLATIONS[id] || id.replace('minecraft:', '').replace(/_/g, ' ');
+    }
+
     function filterItems(query) {
-        let q = query.toLowerCase().replace('minecraft:', '').trim();
-        if (q.includes('зелье') || q.includes('зели') || q.includes('зелья')) q = 'potion';
-        if (q.includes('стрел')) q = 'arrow';
-        if (q.includes('еда') || q.includes('food')) q = 'apple';
+        let q = query.toLowerCase().trim();
         
         const listEl = document.getElementById('itemList');
-        const filtered = state.itemsDb.filter(i => i.includes(q)).slice(0, 200);
+        
+        // Фильтрация: ищем и по ID, и по переводу
+        const filtered = state.itemsDb.filter(i => {
+            const idMatch = i.includes(q);
+            const nameMatch = getDisplayName(i).toLowerCase().includes(q);
+            // Спец. алиасы
+            const aliasMatch = (q.includes('зелье') && i.includes('potion')) || 
+                               (q.includes('стрел') && i.includes('arrow')) ||
+                               (q.includes('меч') && i.includes('sword')) ||
+                               (q.includes('кирк') && i.includes('pickaxe'));
+            return idMatch || nameMatch || aliasMatch;
+        }).slice(0, 200);
         
         if (!filtered.length) {
             listEl.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-muted)">Ничего не найдено</div>';
             return;
         }
-        listEl.innerHTML = filtered.map(id => `
-            <div class="item-row ${state.item === id ? 'selected' : ''}" onclick="App.selectItem('${id}')">${id}</div>
-        `).join('');
+        
+        listEl.innerHTML = filtered.map(id => {
+            const displayName = getDisplayName(id);
+            const isSelected = state.item === id ? 'selected' : '';
+            // Показываем русское имя, а справа мелким шрифтом ID (опционально, можно убрать)
+            return `
+            <div class="item-row ${isSelected}" onclick="App.selectItem('${id}')">
+                <span>${displayName}</span>
+                <span class="item-id-small">${id.replace('minecraft:', '')}</span>
+            </div>`;
+        }).join('');
     }
 
     function selectItem(id) {
@@ -849,7 +1162,6 @@ const App = (() => {
         document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
         document.querySelector(`.nav-item[data-tab="${tab}"]`).classList.add('active');
         
-        // АНИМАЦИЯ ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК
         const currentPanel = document.querySelector('section:not(.hidden)');
         if(currentPanel) {
             currentPanel.style.opacity = '0';
@@ -858,7 +1170,6 @@ const App = (() => {
                 document.querySelectorAll('section[id^="panel-"]').forEach(p => p.classList.add('hidden'));
                 const nextPanel = document.getElementById(`panel-${tab}`);
                 nextPanel.classList.remove('hidden');
-                // Trigger reflow
                 void nextPanel.offsetWidth;
                 nextPanel.style.opacity = '1';
                 nextPanel.style.transform = 'translateY(0)';
@@ -1112,6 +1423,7 @@ const App = (() => {
                 }
 
                 const componentStr = components.length ? `[${components.join(',')}]` : '';
+                // В КОМАНДЕ ИСПОЛЬЗУЕТСЯ state.item (ID), А НЕ РУССКОЕ НАЗВАНИЕ
                 cmd = `/give ${target} ${state.item}${componentStr} ${count}`;
                 break;
             }
